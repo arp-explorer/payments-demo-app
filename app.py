@@ -2,6 +2,8 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+
+
 @app.route("/")
 def home():
     return "✅ Payments Demo App Running"
@@ -23,6 +25,18 @@ def risk():
     score = "HIGH" if amount > 1000 else "LOW"
 
     return jsonify({"risk_score": score})
+
+# add refund endpoint
+@app.route("/refund")
+def refund():
+    amount = request.args.get("amount", 0)
+
+    return jsonify({
+        "status": "success",
+        "amount": amount,
+        "currency": "USD",
+        "message": "Refund processed"
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
