@@ -26,7 +26,8 @@ def checkout():
         result = authorize_payment(card_number, expiry, cvv, name, amount, request.remote_addr)
         logging.info(f"Raw Cybersource response: {result}")
         if result['success']:
-            flash('Payment successful!', 'success')
+            transaction_id = result.get('transaction_id', 'N/A')
+            flash(f'Payment successful! Transaction ID: {transaction_id}', 'success')
             return redirect(url_for('success'))
         else:
             flash(f"Payment failed: {result['error']}", 'danger')

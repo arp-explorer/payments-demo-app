@@ -2,44 +2,222 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Checkout</title>
+    <title>ARP Sports Academy Checkout</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            min-height: 100vh;
+            color: #f8f9fa;
+        }
+        .brand {
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .sports-items {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+        .item-card {
+            background: #232526;
+            border-radius: 0.8rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            padding: 0.7rem 0.7rem;
+            width: 90px;
+            text-align: center;
+            cursor: pointer;
+            color: #f8f9fa;
+        }
+        .item-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+            transform: translateY(-2px);
+        }
+        .item-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.3rem;
+            font-size: 24px;
+        }
+        .checkout-section {
+            background: #232526;
+            border-radius: 1.2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+            padding: 1.5rem 1.2rem;
+            max-width: 420px;
+            margin: 0 auto;
+            color: #f8f9fa;
+        }
+        .visa-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            font-weight: 700;
+            border-radius: 0.6rem;
+            padding: 0.4rem 1rem;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+        .summary-list {
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            background: #2c2f34;
+            padding: 0.7rem;
+            border-radius: 0.6rem;
+        }
+        .form-control {
+            font-size: 1rem;
+            border: 1px solid #444;
+            border-radius: 0.6rem;
+            padding: 0.6rem 0.9rem;
+            background: #232526;
+            color: #f8f9fa;
+        }
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.15);
+            background: #232526;
+            color: #fff;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #f8f9fa;
+            margin-bottom: 0.4rem;
+        }
+        .btn {
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 0.8rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 0.7rem 1.2rem;
+            letter-spacing: 1px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+        .success-msg {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #0a5c3c;
+            border: none;
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            box-shadow: 0 8px 24px rgba(132, 250, 176, 0.3);
+            animation: slideInUp 0.5s ease;
+        }
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .lead {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+        @media (max-width: 900px) {
+            .sports-items { flex-direction: column; align-items: center; }
+            .checkout-section { padding: 1.2rem; }
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <h2>Checkout</h2>
-        <form method="POST" class="mt-4">
-            <div class="mb-3">
-                <label for="card_number" class="form-label">Card Number</label>
-                <input type="text" class="form-control" id="card_number" name="card_number" required>
+<body>
+    <div class="container py-4" style="max-width: 900px;">
+        <div class="text-center mb-3">
+            <span class="brand display-6">ARP Sports Academy</span>
+            <div class="lead mt-1 mb-2">Premium Sports Equipment</div>
+        </div>
+        <div class="sports-items">
+            <div class="item-card">
+                <div class="item-icon">⛳️</div>
+                <div class="fw-bold">Golf Set</div>
+                <div class="text-success">$299.99</div>
             </div>
-            <div class="mb-3">
-                <label for="expiry" class="form-label">Expiry (MM-YY)</label>
-                <input type="text" class="form-control" id="expiry" name="expiry" required>
+            <div class="item-card">
+                <div class="item-icon">🎾</div>
+                <div class="fw-bold">Tennis Racket</div>
+                <div class="text-success">$149.99</div>
             </div>
-            <div class="mb-3">
-                <label for="cvv" class="form-label">CVV</label>
-                <input type="text" class="form-control" id="cvv" name="cvv" required>
+            <div class="item-card">
+                <div class="item-icon">🏓</div>
+                <div class="fw-bold">Pickleball Paddle</div>
+                <div class="text-success">$89.99</div>
             </div>
-            <div class="mb-3">
-                <label for="name" class="form-label">Name on Card</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+            <div class="item-card">
+                <div class="item-icon">⚽️</div>
+                <div class="fw-bold">Soccer Ball</div>
+                <div class="text-success">$39.99</div>
             </div>
-            <div class="mb-3">
-                <label for="amount" class="form-label">Amount (USD)</label>
-                <input type="number" step="0.01" class="form-control" id="amount" name="amount" required>
+        </div>
+        <div class="checkout-section mt-2">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <div class="success-msg mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#388e3c" class="bi bi-check-circle me-2" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 1 0-1.06-1.06L7.5 9.439 6.03 7.97a.75.75 0 1 0-1.06 1.06l1.5 1.5z"/>
+                  </svg>
+                  {% for category, message in messages %}
+                    <span>{{ message }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+            <span class="visa-badge">Visa Acceptance Checkout</span>
+            <div class="summary-list mb-2">
+                <div class="fw-bold mb-1">Selected Items</div>
+                <div class="d-flex justify-content-between">
+                    <span>Golf Set</span><span>$299.99</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span>Pickleball Paddle</span><span>$89.99</span>
+                </div>
+                <div class="d-flex justify-content-between fw-bold border-top pt-2">
+                    <span>Total</span><span>$389.98</span>
+                </div>
             </div>
-            <button type="submit" class="btn btn-success">Pay</button>
-        </form>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            <div class="mt-3">
-              {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">{{ message }}</div>
-              {% endfor %}
-            </div>
-          {% endif %}
-        {% endwith %}
+            <form method="POST" autocomplete="off">
+                <div class="mb-2">
+                    <label for="card_number" class="form-label">Card Number</label>
+                    <input type="text" class="form-control" id="card_number" name="card_number" value="4111111111111111" placeholder="Card Number" required>
+                </div>
+                <div class="row g-2 mb-2">
+                    <div class="col-6">
+                        <label for="expiry" class="form-label">Expiry (MM-YY)</label>
+                        <input type="text" class="form-control" id="expiry" name="expiry" value="12-30" placeholder="MM-YY" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cvv" name="cvv" value="123" placeholder="CVV" required>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label for="name" class="form-label">Name on Card</label>
+                    <input type="text" class="form-control" id="name" name="name" value="Alex Morgan" placeholder="Name on Card" required>
+                </div>
+                <div class="mb-2">
+                    <label for="billing_address" class="form-label">Billing Address</label>
+                    <input type="text" class="form-control" id="billing_address" name="billing_address" value="1 Market St, San Francisco, CA" placeholder="Billing Address" required>
+                </div>
+                <input type="hidden" id="amount" name="amount" value="389.98">
+                <button type="submit" class="btn btn-success w-100 py-2">Pay $389.98</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

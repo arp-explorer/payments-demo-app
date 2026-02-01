@@ -72,7 +72,9 @@ def authorize_payment(card_number, expiry, cvv, name, amount, customer_ip):
         response = requests.post(API_URL, json=payload, headers=headers)
         logging.info(f"Cybersource raw response: {response.text}")
         if response.status_code == 201:
-            return {"success": True, "response": response.json()}
+            resp_json = response.json()
+            transaction_id = resp_json.get("id") or resp_json.get("transaction_id") or resp_json.get("orderInformation", {}).get("transactionId")
+            return {"success": True, "response": resp_json, "transaction_id": transaction_id}
         else:
             error = response.json().get("message", response.text)
             return {"success": False, "error": error, "response": response.text}
